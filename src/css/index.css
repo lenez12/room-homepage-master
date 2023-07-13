@@ -5,6 +5,7 @@
 
 :root {
     --crl-dark-gray: 0, 0%, 63%;
+    --crl-very-dark-gray: 0, 0%, 27%;
     --clr-white: 0, 0%, 100%;
     --clr-black: 0, 0%, 0%;
 
@@ -137,10 +138,197 @@ h6 {
 /* set up the body */
 body {
     font-family: var(--ff-sans-normal);
-    font-size: var(--fs-400);
+    font-size: var(--font-size-md);
     background-color: hsl(var(--clr-white));
+}
+
+.card {
+    padding: 2rem;
+    box-shadow: 0 0 20px hsl(var(--clr-black), 0.2);
+
 }
 
 .container {
     padding: 1.5rem;
+}
+
+p {
+    color: hsl(var(--crl-dark-gray));
+    font-size: var(--font-size-sm);
+}
+
+/*  */
+.hero-img {
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    background-image: url(/src/images/desktop-image-hero-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 20rem;
+    padding: 2rem;
+    padding-top: 3rem;
+    width: 100%;
+    height: 2erm;
+}
+
+.action-buttons {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+@media (max-width:35rem) {
+    .hero-img {
+        background-image: url(/src/images/mobile-image-hero-1.jpg);
+        justify-content: center;
+        background-position: top;
+        min-height: 30rem;
+    }
+
+    .nav-item {
+        position: relative;
+        padding-bottom: .3rem;
+        font-size: var(--font-size-xl);
+    }
+
+    .logo {
+        order: 2;
+    }
+
+    .navigation--primary {
+        position: absolute;
+        z-index: 1000;
+        background-color: white;
+        color: hsl(var(--clr-black));
+        padding: 1rem;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        max-height: 7rem;
+        padding-left: 5rem;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: transform 500ms ease-in-out, opacity 300ms ease-in-out;
+    }
+
+    .navigation--primary[data-visible="true"] {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .nav-item::after {
+        background-color: hsl(var(--clr-black));
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        z-index: 2000;
+        background: transparent;
+        background-image: url(/src/images/icon-hamburger.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 1.5rem;
+        aspect-ratio: 1;
+        border: 0;
+        left: 2rem;
+        top: 3.5rem;
+        transform: translateY(-50%);
+    }
+
+    .mobile-nav-toggle[aria-expanded="true"] {
+        background-image: url(/src/images/icon-close.svg);
+    }
+}
+
+.description {
+    padding: 4rem 2rem 5rem;
+}
+
+.about .description {
+    padding: 3rem 2rem;
+}
+
+.about img {
+    width: 100%;
+}
+
+.action-buttons--desktop {
+    display: none;
+}
+
+@media (min-width:64em) {
+    body {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        min-height: 100vh;
+    }
+
+    .action-buttons--mobile {
+        display: none;
+    }
+
+    .header {
+        display: grid;
+        grid-template-columns: 1.8fr auto 1fr;
+        grid-template-rows: 1fr auto;
+        grid-template-areas:
+            "hero . description"
+            "hero buttons description"
+        ;
+    }
+
+    .hero-img {
+        grid-area: hero;
+    }
+
+    .action-buttons--desktop {
+        display: flex;
+        justify-content: space-between;
+        grid-area: buttons;
+        position: static;
+        bottom: 0;
+        right: 0;
+        z-index: 1000;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+    .description {
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        flex-direction: column;
+        grid-area: description;
+        grid-column: buttons / description;
+        justify-content: center;
+        text-align: left;
+        padding-inline: 3rem;
+    }
+
+    .about {
+        display: grid;
+        grid-template-areas:
+            "dark about light";
+        /* grid-template-columns: 200px 1fr 200px; */
+    }
+
+    .about .description {
+        grid-area: about;
+        padding: 3rem 2rem;
+    }
+
+    .about .about-dark {
+        grid-area: dark;
+        height: 100%;
+    }
+
+    .about .about-light {
+        grid-area: light;
+        height: 100%;
+    }
 }
