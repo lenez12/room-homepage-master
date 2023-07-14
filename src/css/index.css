@@ -161,7 +161,6 @@ p {
 .hero-img {
     position: relative;
     display: flex;
-    gap: 2rem;
     background-image: url(/src/images/desktop-image-hero-1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -169,13 +168,70 @@ p {
     padding: 2rem;
     padding-top: 3rem;
     width: 100%;
-    height: 2erm;
+    align-items: start;
+    background-position: 0px 0px;
+
+}
+
+.slide-in {
+    -webkit-animation: slidein 1.5s;
+    animation: slidein 1.5s;
+
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+}
+
+@keyframes slidein {
+    from {
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+    }
+
+    to {
+        filter: blur(0);
+    }
+
 }
 
 .action-buttons {
     position: absolute;
     bottom: 0;
     right: 0;
+    display: flex;
+}
+
+
+
+.description {
+    padding: 4rem 2rem 5rem;
+}
+
+.about .description {
+    padding: 3rem 2rem;
+}
+
+.about img {
+    width: 100%;
+}
+
+.action-buttons--desktop {
+    display: none;
+}
+
+.attribution {
+    background-color: hsl(var(--clr-black));
+    color: white;
+    padding: .5rem 0;
+    text-align: center;
 }
 
 @media (max-width:35rem) {
@@ -184,6 +240,7 @@ p {
         justify-content: center;
         background-position: top;
         min-height: 30rem;
+
     }
 
     .nav-item {
@@ -243,23 +300,13 @@ p {
     }
 }
 
-.description {
-    padding: 4rem 2rem 5rem;
+@media (min-width:35.063rem) {
+    .hero-img {
+        gap: 2rem;
+    }
 }
 
-.about .description {
-    padding: 3rem 2rem;
-}
-
-.about img {
-    width: 100%;
-}
-
-.action-buttons--desktop {
-    display: none;
-}
-
-@media (min-width:64em) {
+@media (min-width:64em) and (max-width:90em) {
     body {
         display: grid;
         grid-template-rows: 1fr auto;
@@ -282,6 +329,7 @@ p {
 
     .hero-img {
         grid-area: hero;
+
     }
 
     .action-buttons--desktop {
@@ -294,9 +342,7 @@ p {
         z-index: 1000;
     }
 
-    .page-title {
-        font-size: 2.5rem;
-    }
+
 
     .description {
         display: flex;
@@ -315,6 +361,94 @@ p {
         grid-template-areas:
             "dark about light";
         /* grid-template-columns: 200px 1fr 200px; */
+    }
+
+    .about .description {
+        grid-area: about;
+        padding: 3rem 2rem;
+    }
+
+    .about .about-dark {
+        grid-area: dark;
+        height: 100%;
+    }
+
+    .about .about-light {
+        grid-area: light;
+        height: 100%;
+    }
+}
+
+@media (min-width:90.063em) {
+    :root {
+        --font-size-xs: 0.75rem;
+        --font-size-sm: clamp(0.875rem, 1vw, 2rem);
+        --font-size-md: clamp(1rem, 1.3vw, 2.2rem);
+        --font-size-lg: 1.125rem;
+        --font-size-xl: 1.3125rem;
+        --font-size-2xl: clamp(1.5rem, 1.5vw, 2.5rem);
+        --font-size-3xl: clamp(2.652rem, 3vw, 4rem);
+        --font-size-4xl: 4rem;
+    }
+
+    body {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        min-height: 100vh;
+    }
+
+    .action-buttons--mobile {
+        display: none;
+    }
+
+    .header {
+        display: grid;
+        grid-template-columns: 1.8fr auto 1fr;
+        grid-template-rows: 1fr auto;
+        grid-template-areas:
+            "hero . description"
+            "hero buttons description"
+        ;
+    }
+
+    .logo {
+        width: clamp(2rem, 6vw, 10rem);
+    }
+
+    .hero-img {
+        grid-area: hero;
+        gap: clamp(2rem, 10vw, 5rem);
+    }
+
+    .action-buttons--desktop {
+        display: flex;
+        justify-content: space-between;
+        grid-area: buttons;
+        position: static;
+        bottom: 0;
+        right: 0;
+        z-index: 1000;
+    }
+
+
+
+    .description {
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        flex-direction: column;
+        grid-area: description;
+        grid-column: buttons / description;
+        justify-content: center;
+        text-align: left;
+        padding-inline: clamp(3rem, 5vw, 10rem);
+    }
+
+    .about {
+        display: grid;
+        grid-template-areas:
+            "dark about light";
+        grid-template-columns: clamp(200px, 30vw, 600px) 1fr clamp(200px, 30vw, 600px);
     }
 
     .about .description {

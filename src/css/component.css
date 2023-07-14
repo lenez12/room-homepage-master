@@ -2,7 +2,7 @@
     font-size: var(--font-size-3xl);
     font-family: var(--ff-sans-normal);
     font-weight: 700;
-    line-height: 2.3rem;
+    /* line-height: 2.3rem; */
 }
 
 .article-title {
@@ -52,6 +52,10 @@
     top: 50%;
     bottom: 50%;
     transform: translateY(-50%);
+    animation-name: moveRight;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 .purchase-button:hover {
@@ -86,4 +90,38 @@
 
 .nav-item:hover::after {
     transform: scale(1);
+}
+
+@keyframes moveRight {
+    from {
+        transform: translate(0, -50%);
+    }
+
+    50% {
+        transform: translate(1rem, -50%);
+    }
+
+    to {
+        transform: translate(0, -50%);
+    }
+}
+
+@keyframes bounce {
+    from {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.bounce {
+    animation: bounce 1s 1;
+
 }
