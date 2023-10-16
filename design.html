@@ -1,58 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/css/reset.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/css/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Design System</title>
-    <link rel="stylesheet" href="/src/css/design.css">
+    <link rel="stylesheet" href="/src/css/design.css" />
     <script src="src/js/navigation.js" defer></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <main class="container flow">
-        <div class="typography flow">
-            <h1 class="page-title">Design System</h1>
-            <h2 class="article-title">About our furniture</h2>
-            <div class="card">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam obcaecati accusantium ex tempora.
-                    Corporis id error molestiae rerum hic perferendis, deserunt fugiat quod quibusdam accusantium vitae
-                    magnam velit pariatur quo adipisci, a ratione quam dicta mollitia laborum! Earum reiciendis mollitia
-                    nihil sapiente incidunt. Architecto fugiat non cum voluptatum id? Harum.</p>
-            </div>
+      <div class="typography flow">
+        <h1 class="page-title">Design System</h1>
+        <h2 class="article-title">About our furniture</h2>
+        <div class="card">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+            obcaecati accusantium ex tempora. Corporis id error molestiae rerum
+            hic perferendis, deserunt fugiat quod quibusdam accusantium vitae
+            magnam velit pariatur quo adipisci, a ratione quam dicta mollitia
+            laborum! Earum reiciendis mollitia nihil sapiente incidunt.
+            Architecto fugiat non cum voluptatum id? Harum.
+          </p>
         </div>
+      </div>
 
-        <!-- Navigation Button -->
-        <div id="buttons" class="flex ">
-            <button class="nav-button nav-button--left"></button>
-            <button class="nav-button nav-button--right"></button>
-        </div>
-        <div>
-            <a href="#" class="purchase-button">SHOP NOW</a>
-        </div>
+      <!-- Navigation Button -->
+      <div id="buttons" class="flex">
+        <button
+          title="left-button"
+          class="nav-button nav-button--left"
+        ></button>
+        <button
+          title="right-button"
+          class="nav-button nav-button--right"
+        ></button>
+      </div>
+      <div>
+        <a href="#" class="purchase-button">SHOP NOW</a>
+      </div>
 
-        <header class="header card">
-            <button class="mobile-nav-toggle" aria-controls="navigation--primary">
-                <span class="sr-only" aria-expanded="false">Menu</span>
-            </button>
-            <a href="#" class="logo"><img src="src/images/logo.svg" alt="room homepage logo"></a>
-            <nav>
-                <ul id="navigation--primary" class="navigation--primary">
-                    <li class="nav-item"><a href="#home">home</a></li>
-                    <li class="nav-item"><a href="#shope">shop</a></li>
-                    <li class="nav-item"><a href="#sabout">about</a></li>
-                    <li class="nav-item"><a href="#scontact">contact</a></li>
-                </ul>
-            </nav>
-        </header>
-
+      <header class="header card">
+        <button class="mobile-nav-toggle" aria-controls="navigation--primary">
+          <span class="sr-only">Menu</span>
+        </button>
+        <a href="#" class="logo"
+          ><img src="src/images/logo.svg" alt="room homepage logo"
+        /></a>
+        <nav>
+          <ul id="navigation--primary" class="navigation--primary">
+            <li class="nav-item"><a href="#home">home</a></li>
+            <li class="nav-item"><a href="#shope">shop</a></li>
+            <li class="nav-item"><a href="#sabout">about</a></li>
+            <li class="nav-item"><a href="#scontact">contact</a></li>
+          </ul>
+        </nav>
+      </header>
     </main>
-
-</body>
-
+  </body>
 </html>
